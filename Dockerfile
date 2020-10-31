@@ -4,7 +4,7 @@ LABEL   description="image contain all needed stuff"
 
 
 RUN     apt-get update 
-RUN     apt-get install -y wget git gcc
+RUN     apt-get install -y wget git gcc tar
 
 RUN apt-get install -y lvm2
 RUN wget -P /tmp https://golang.org/dl/go1.15.3.linux-amd64.tar.gz &&
