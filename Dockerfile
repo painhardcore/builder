@@ -10,8 +10,13 @@ RUN     wget -P /tmp https://golang.org/dl/go1.15.3.linux-amd64.tar.gz && \
         tar -C /usr/local -xzf /tmp/go1.15.3.linux-amd64.tar.gz && \
         rm /tmp/go1.15.3.linux-amd64.tar.gz
 
-ENV PATH="/usr/local/go/bin:${PATH}"
-ENV GO111MODULE=on
+ENV     GO111MODULE=on
+ENV     GOPATH="/usr/share/go"
+ENV     PATH="/usr/local/go/bin:usr/local/go/bin:$GOPATH/bin:$PATH"
+
+RUN     wget -O golangci-lint.deb https://github.com/golangci/golangci-lint/releases/download/v1.32.1/golangci-lint-1.32.1-linux-amd64.deb && \
+        dpkg -i golangci-lint.deb
+
 RUN     mkdir -p proto_3.11.0 && \
 	    curl -L -O https://github.com/protocolbuffers/protobuf/releases/download/v3.11.0/protoc-3.11.0-linux-x86_64.zip && \
 	    unzip protoc-3.11.0-linux-x86_64.zip -d proto_3.11.0/ && \
@@ -22,3 +27,7 @@ RUN     mkdir -p proto_3.11.0 && \
 	    go get github.com/golang/protobuf/protoc-gen-go@v1.3
 
 RUN     go get sigs.k8s.io/controller-tools/cmd/controller-gen@v0.2.2
+
+RUN wget -O kind https://github.com/painhardcore/builder/releases/download/0.0.1-alpha/kind_v0.8.1 && \
+    chmod +x kind && \
+    mv kind /usr/bin
