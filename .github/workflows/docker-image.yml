@@ -16,3 +16,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag builder:$(date +%s)
+
+    - name: GitHub Container Registry Docker Action
+      uses: trentjones21/github-docker@master
