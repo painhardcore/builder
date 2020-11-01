@@ -14,8 +14,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag
     - name: Build and publish Docker Image to GitHub Packages Registry
       # You may pin to the exact commit or the version.
       # uses: VaultVulp/gp-docker-action@abd86dfdcd23929f6195a0fd455769a73b7276da
@@ -25,4 +23,3 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         # Docker Image name
         image-name: builder
-        image-tag: testing
