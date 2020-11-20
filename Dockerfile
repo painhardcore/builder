@@ -3,7 +3,7 @@ FROM    ubuntu:20.04
 LABEL   description="image contains all needed stuff"
 
 RUN     apt-get update && \
-        apt-get install -y wget git gcc tar lvm2 curl unzip make apt-transport-https gnupg2 curl && \
+        apt-get install -y wget git gcc tar lvm2 curl unzip make apt-transport-https gnupg2 curl apt-utils && \
 	curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
         echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | tee -a /etc/apt/sources.list.d/kubernetes.list && \
 	apt-get update && \
