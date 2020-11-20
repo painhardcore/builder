@@ -11,7 +11,8 @@ RUN     apt-get update && \
 
 RUN     wget -P /tmp https://golang.org/dl/go1.15.3.linux-amd64.tar.gz && \
         tar -C /usr/local -xzf /tmp/go1.15.3.linux-amd64.tar.gz && \
-        rm /tmp/go1.15.3.linux-amd64.tar.gz && 
+        rm /tmp/go1.15.3.linux-amd64.tar.gz
+	
 ENV     GO111MODULE=on
 ENV     GOPATH="/usr/share/go"
 ENV     PATH="/usr/local/go/bin:usr/local/go/bin:$GOPATH/bin:$PATH"
