@@ -12,7 +12,7 @@ ENV     PATH="/usr/local/go/bin:usr/local/go/bin:$GOPATH/bin:$PATH"
 
 RUN     wget -P /tmp https://golang.org/dl/go1.15.3.linux-amd64.tar.gz && \
         tar -C /usr/local -xzf /tmp/go1.15.3.linux-amd64.tar.gz && \
-        rm /tmp/go1.15.3.linux-amd64.tar.gz && \
+        rm /tmp/go1.15.3.linux-amd64.tar.gz && 
 	
 RUN     wget -O golangci-lint.deb https://github.com/golangci/golangci-lint/releases/download/v1.32.1/golangci-lint-1.32.1-linux-amd64.deb && \
         dpkg -i golangci-lint.deb
